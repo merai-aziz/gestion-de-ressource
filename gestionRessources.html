@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<header class="headeer">
+    <img  class="img1" src="/images/log1.png" alt="aaa">
+    <img   class="img2" src="/images/log2.png" alt="bbb">
+    <h1>Gestion des ressources humaines</h1>
+</header>
+
+
+    <aside>
+<h4><strong>Menu</strong></h4>
+        <nav>
+            <a href="gestionRessources.html">Gestion des ressources</a><br>
+            <a href="gestionEtablissement.html">Gestion des établissements</a><br>
+            <a href="">Gestion des affectations</a><br>
+            <a href="">Gestion des compétences</a><br>
+        </nav>
+
+    </aside>
+
+    <div class="container">
+        <a href="" class="Btn_add" id="add"> <img src="images/plus.png"> Ajouter</a>
+        <a href="index.html" class="Btn_ad" > <img src="images/quitter.png"> Retour</a>
+        <div class="popup" id="popupForm">
+            <h2>Ajouter une ressource</h2>
+            <label for="first_name">Nom:</label>
+            <input type="text" id="first_name" name="first_name">
+            <label for="last_name">Prénom:</label>
+            <input type="text" id="last_name" name="last_name">
+            <label for="first_nameAr">Nom_arabe:</label>
+            <input type="text" id="first_nameAr" name="first_nameAr">
+            <label for="last_nameAr">Prénom_arabe:</label>
+            <input type="text" id="last_nameAr" name="last_nameAr">
+            <label for="e-mail">E-mail:</label>
+            <input type="email" id="e-mail" name="e-mail" placeholder="aziz@gmail.com" required pattern="['@gmail.com']">
+            <label for="telephone">Num-telephone:</label>
+            <input type="text" id="telephone" name="telephone" required placeholder="+21621123468">
+            <label for="titre">Titre:</label>
+            <select id="titre" name="titre">
+                <option>الي السيد</option>
+                <option>الي السيدة </option>
+            </select>
+            <button id="submitBtn">Soumettre</button>
+        </div>
+        <div class="overlay" id="overlay"></div>
+        
+        <script>
+            document.getElementById('add').addEventListener('click', function(event) {
+                event.preventDefault();
+                document.getElementById('popupForm').style.display = 'block';
+                document.getElementById('overlay').style.display = 'block';
+            });
+        
+            document.getElementById('overlay').addEventListener('click', function() {
+                document.getElementById('popupForm').style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+            });
+        
+            document.getElementById('submitBtn').addEventListener('click', function() {
+                // Vous pouvez ajouter ici les actions pour soumettre le formulaire
+                alert('ressource ajouté avec succès!');
+                document.getElementById('popupForm').style.display = 'none';
+                document.getElementById('overlay').style.display = 'none';
+            });
+        
+           
+               
+            
+        </script>
+        <table>
+            <tr id="items">
+                <th>ID</th>
+                <th>Nom</th>
+                <th>Prénom</th>
+                <th>Nom_arabe</th>
+                <th>Prénom_arabe</th>
+                <th>E-mail</th>
+                <th>Num-telephone</th>
+                <th>Titre</th>
+            </tr>
+            <?php 
+                //inclure la page de connexion
+                include_once "connexion.php";
+                //requête pour afficher la liste des employés
+                $req = mysqli_query($con , "SELECT * FROM ressource");
+                if(mysqli_num_rows($req) == 0){
+                    //s'il n'existe pas de ressource dans la base de donné , alors on affiche ce message :
+                echo "Il n'y a pas encore de ressource ajouter !" ;
+                    
+                }else {
+                    //si non , affichons la liste de tous les ressources
+                    while($row=mysqli_fetch_assoc($req)){
+                        ?>
+                        <tr>
+                            <td><?=$row['ID']?></td>
+                            <td><?=$row['Nom']?></td>
+                            <td><?=$row['Prénom']?></td>
+                            <td><?=$row['Nom_arabe']?></td>
+                            <td><?=$row['Prénom_arabe']?></td>
+                            <td><?=$row['E-mail']?></td>
+                            <td><?=$row['Num-telephone']?></td>
+                            <td><?=$row['Titre']?></td>
+                            <!--Nous alons mettre l'id de chaque ressource dans ce lien -->
+                            <td><a href="modifierRessource.html"><img src="/images/pen.png"></a></td>
+                            <td><a href="supprimer.html?id=<?=$row['id']?>"><img src="/images/trash.png"></a></td>
+                        </tr>
+                        <?php
+                    }
+                    
+                }
+            ?>
+      
+         
+        </table>
+   
+   
+   
+   
+    </div>
+    
+</body>
+
+
+<footer>
+<div>
+
+    <label>support</label><br>
+    <label>Copyright</label><br>
+</div>
+</footer>
+</html>

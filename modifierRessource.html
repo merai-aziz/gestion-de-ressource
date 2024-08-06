@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <header class="headeer">
+        <img  class="img1" src="/images/log1.png" alt="aaa">
+        <img   class="img2" src="/images/log2.png" alt="bbb">
+        <h1>Gestion des ressources humaines</h1>
+    </header>
+    
+    
+        <aside>
+    <h4><strong>Menu</strong></h4>
+            <nav>
+                <a href="gestionRessources.html">Gestion des ressources</a><br>
+                <a href="gestionEtablissement.html">Gestion des établissements</a><br>
+                <a href="">Gestion des affectations</a><br>
+                <a href="">Gestion des compétences</a><br>
+            </nav>
+    
+        </aside>
+<?php
+
+         //connexion à la base de donnée
+          include_once "connexion.php";
+         //on récupère le id dans le lien
+          $id = $_GET['id'];
+          //requête pour afficher les infos d'un employé
+          $req = mysqli_query($con , "SELECT * FROM Employe WHERE id = $id");
+          $row = mysqli_fetch_assoc($req);
+
+
+       //vérifier que le bouton ajouter a bien été cliqué
+       if(isset($_POST['button'])){
+           //extraction des informations envoyé dans des variables par la methode POST
+           extract($_POST);
+           //verifier que tous les champs ont été remplis
+           if(isset($nom) && isset($prenom) && $age){
+               //requête de modification
+               $req = mysqli_query($con, "UPDATE employe SET nom = '$nom' , prenom = '$prenom' , age = '$age' WHERE id = $id");
+                if($req){//si la requête a été effectuée avec succès , on fait une redirection
+                    header("location: index.php");
+                }else {//si non
+                    $message = "Employé non modifié";
+                }
+
+           }else {
+               //si non
+               $message = "Veuillez remplir tous les champs !";
+           }
+       }
+    
+    ?>
+
+    <div class="form">
+        <a href="gestionRessources.html" class="back_btn"><img src="images/back.png"> Retour</a>
+        <h2>Modifier l'employé : <?=$row['nom']?> </h2>
+        <p class="erreur_message">
+           <?php 
+              if(isset($message)){
+                  echo $message ;
+              }
+           ?>
+        </p>
+        <form action="" method="POST">
+
+
+
+           
+            <label>Nom</label>
+            <input type="text" name="nom" value="<?=$row['Nom']?>">
+            <label>Prénom</label>
+            <input type="text" name="prenom" value="<?=$row['Prénom']?>">
+            <label>Nom_arabe</label>
+            <input type="text" name="nom" value="<?=$row['Nom_arabe']?>">
+            <label>Prénom_arabe</label>
+            <input type="text" name="prenom" value="<?=$row['Prénom_arabe']?>">
+            <label>E-mail:</label>
+            <input type="email" id="e-mail" name="e-mail" placeholder="aziz@gmail.com" required pattern="['@gmail.com']"value="<?=$row['E-mail']?>">
+            <label>Num-telephone:</label>
+            <input type="text" id="telephone" name="telephone" required placeholder="+21621123468"value="<?=$row['Telephone']?>">
+            <label>Titre:</label>
+            <select id="titre" name="titre"value="<?=$row['Titre']?>">
+                <option>الي السيد</option>
+                <option>الي السيدة </option>
+                <select/>
+            <input type="submit" value="Modifier" name="button">
+        </form>
+    </div>
+</body>
+</html>

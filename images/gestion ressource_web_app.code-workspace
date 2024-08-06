@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "gestion ressource_web_app",
+			"path": ".."
+		},
+		{
+			"name": "images",
+			"path": "../../Gestion des employés/images"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "gestion ressource_web_app"
+	}
+}

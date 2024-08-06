@@ -1,0 +1,404 @@
+/* style.css */
+
+
+header.headeer {
+    background-color: #5784BA;
+    color: #FFFFFF;
+     position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 78px; 
+    padding: 20px;
+    text-align: center;
+}
+
+header.headeer img {
+    width: 60px;
+    height: 60px;
+   
+}
+
+.img1{
+    position: absolute;
+    top:10px ;
+    left: 70px;
+
+}
+.img2{
+    position: absolute;
+    top:10px ;
+    left: 1250px;
+
+}
+h1 {
+    font-size: 2em;
+    margin: 0;
+}
+
+
+
+aside {
+    
+    background-color: #9AC8EB;
+    height: 561px;
+    width: 220px;
+    position: absolute;
+    top: 77px;
+    left: 0.2px;
+}
+
+aside h4 {
+    margin-top: 0;
+}
+
+aside nav a {
+    display: block;
+    color: #0b0d0f;
+    text-decoration: none;
+    margin-bottom: 10px;
+    
+}
+
+aside nav a:hover {
+    color: #e2136d;
+}
+
+footer {
+    background-color: #B6D8F2;
+    color: #5784BA;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    left: 220px;
+    width: 83%;
+    height: 10%;
+    bottom: 0;
+}
+
+footer div {
+    display: inline-block;
+    text-align: left;
+}
+
+footer label {
+    display: block;
+    margin: 2px 0;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+}
+.Btn_add {
+    width: fit-content;
+    margin-bottom:20px;
+    background-color: #2bc48a;
+    padding: 5px 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-align: 0;
+    border-radius: 6px;
+    text-decoration: 0;
+    position: absolute;
+    top: 90px;
+    left: 300px;
+}
+.Btn_add img {
+    margin-right: 5px;
+    height: 20px;
+}
+
+.Btn_ad {
+    width: fit-content;
+    margin-bottom:20px;
+    background-color: #2bc48a;
+    padding: 5px 20px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    text-align: 0;
+    border-radius: 6px;
+    text-decoration: 0;
+    position: absolute;
+    top: 90px;
+    left: 1158px;
+}
+.Btn_ad img {
+    margin-right: 5px;
+    height: 20px;
+}
+
+
+
+/*tableau*/
+table {
+    border-collapse:collapse;
+    color: #404040;
+    position: absolute;
+    top: 150px;
+    left: 300px;
+}
+th {
+    font-size: 16px;
+    border-bottom: 3px solid #ffcb61;
+    padding: 5px 20px;
+    font-weight: 500;
+}
+td {
+    font-weight: 400;
+    padding: 5px 30px;
+    font-size: 14px;
+    text-align: center;
+
+}
+img {
+    height: 25px;
+   
+}
+tr:nth-child(2n){
+    background-color: #f6f8f8;
+}
+tr:nth-child(2n) td {
+    border-bottom: 1px solid #e0e0e0;
+    border-top:  1px solid #e0e0e0;
+}
+/*Form CSS*/
+.form {
+    background-color: #f6f8f8;
+    padding: 25px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    border-radius: 6px;
+    position: absolute;
+    top: 110px;
+    width: 400px;
+}
+.form form {
+    display: flex;
+    width: 350px;
+    flex-direction: column;
+}
+.back_btn {
+    color: #2bc48a;
+    text-decoration: 0;
+    display: flex;
+    align-items: center;
+}
+.back_btn img {
+    height: 16px;
+    margin-right:5px ;
+}
+h2 {
+    margin: 10px 0;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.erreur_message {
+    color: red;
+    font-size: 12px;
+}
+label {
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+input{
+    padding: 5px;
+    border: 1px solid #999;
+    outline: 0;
+    margin-top: 2px;
+}
+input:focus{
+    border: 1px solid #ffcb61;
+}
+input[type="submit"]{
+    margin-top: 25px;
+    background-color: #2bc48a;
+    border: 1px solid #2bc48a;
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+
+
+.popup {
+    display: none;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-family: 'Arial', sans-serif;
+    max-width: 400px; /* Limite la largeur maximale */
+    width: 90%; /* S'assure qu'il est réactif */
+    max-height: 90vh; /* Limite la hauteur maximale */
+    overflow-y: auto; /* Permet le défilement si le contenu dépasse */
+}
+
+/* Styles pour les labels */
+.popup label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+/* Styles pour les champs de saisie */
+.popup input, .popup select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+/* Styles pour le bouton */
+.popup button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+/* Effet de survol pour le bouton */
+.popup button:hover {
+    background-color: #0056b3;
+}
+
+/* Amélioration du style pour le select */
+.popup select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbD0iI0NDQyI+PHBhdGggZD0iTTcgMTBsNSA1IDUtNSIvPjwvc3ZnPg==') no-repeat right 10px center;
+    background-color: #fff;
+    padding-right: 30px; /* Ajoute un espace pour l'icône de la flèche */
+}
+
+/* Optionnel : style pour le conteneur de la popup */
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 
+.Dashboard {
+    border: 2px solid white;
+    border-radius: 6px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("../images/.jpg");
+  }
+  
+  .card {
+    border: 1px solid white;
+    width: 193px;
+    height: 135px;
+    margin: 5px;
+    display: inline-block;
+    margin-top: 50px;
+  }
+  
+  .card1,
+  .card2,
+  .card3 {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.568);
+  }
+  
+  .card .number,
+  .bigCard .number {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 11px;
+    font-weight: bold;
+    color: orange;
+  }
+  
+  .descri {
+    margin-top: 9px;
+    text-align: center;
+  }
+  
+  .descri1 {
+    color: rgb(0, 153, 255);
+  }
+  
+  .descri2 {
+    color: rgb(3, 243, 15);
+  }
+  
+  .descri3 {
+    color: rgb(252, 4, 149);
+  }
+  
+  h3 {
+    text-align: center;
+    color: white;
+  }
+  
+  .bigCardwrap {
+    align-self: center;
+    display: flex;
+  }
+  
+  .bigCard {
+    border: 1px solid white;
+    width: 303px;
+    height: 130px;
+    margin: 2px;
+    display: inline-block;
+    margin-top: 10px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.575);
+  }
+  
+  .bigCard p {
+    margin-top: 9px;
+    text-align: center;
+  }
+  
+
+  
+  .men {
+    color: rgb(0, 153, 255);
+    font-weight: bold;
+  }
+  
+  .woman {
+    color: rgb(252, 4, 149);
+    font-weight: bold;
+  } */
+
+  /* Styles généraux pour le conteneur */
+
